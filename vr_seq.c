@@ -4,7 +4,7 @@
 
 #include "vr.h"
 
-#define DEBUG
+//#define DEBUG
 
 void init() {
     // dummy
@@ -29,10 +29,13 @@ void recoverVideo(unsigned char *videoR, unsigned char *videoG, unsigned char *v
                 for (int w = 0; w < W; ++w) {
                     int dPixel = 0, d;
                     d = (int)videoR[(i * H + h) * W + w] - (int)videoR[(j * H + h) * W + w];
+                    //if (i == 0 && j == 1) printf("%d\n", d);
                     dPixel += d * d;
                     d = (int)videoG[(i * H + h) * W + w] - (int)videoG[(j * H + h) * W + w];
+                    //if (i == 0 && j == 1) printf("%d\n", d);
                     dPixel += d * d;
                     d = (int)videoB[(i * H + h) * W + w] - (int)videoB[(j * H + h) * W + w];
+                    //if (i == 0 && j == 1) printf("%d\n", d);
                     dPixel += d * d;
                     dImg += sqrt((float)dPixel);
                 }
